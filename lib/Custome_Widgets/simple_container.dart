@@ -7,9 +7,15 @@ import 'package:provider/provider.dart';
 class Item {
   final String number;
   final String text;
+  String? title;
   final Widget? audioButton;
 
-  Item({required this.number, required this.text, this.audioButton});
+  Item({
+    required this.number,
+    required this.text,
+    this.audioButton,
+    this.title,
+  });
 }
 
 class SimpleContainer extends StatelessWidget {
@@ -69,13 +75,17 @@ class SimpleContainer extends StatelessWidget {
                     );
                   },
                 ),
-              Text(title, style: AppTheme.lightTheme.textTheme.titleMedium),
+              Text(
+                "${title}: ",
+                style: AppTheme.lightTheme.textTheme.bodyLarge,
+              ),
               const SizedBox(height: 16),
 
               ...items.map(
                 (item) => _buildListItem(
                   item,
-                  numberStyle: AppTheme.lightTheme.textTheme.bodyMedium!,
+                  numberStyle: AppTheme.lightTheme.textTheme.bodyLarge!,
+                  titleStyle: AppTheme.lightTheme.textTheme.bodyLarge!,
                   textStyle: AppTheme.lightTheme.textTheme.bodyMedium!,
                 ),
               ),
@@ -90,6 +100,7 @@ class SimpleContainer extends StatelessWidget {
     Item item, {
     required TextStyle numberStyle,
     required TextStyle textStyle,
+    required TextStyle titleStyle,
   }) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4.0),
@@ -105,8 +116,10 @@ class SimpleContainer extends StatelessWidget {
             child: RichText(
               text: TextSpan(
                 children: [
-                  TextSpan(text: "${item.number} ", style: numberStyle),
-                  TextSpan(text: item.text, style: textStyle),
+                  TextSpan(text: "${item.number}- ", style: numberStyle),
+                  if (item.title != null)
+                    TextSpan(text: "${item.title}: ", style: titleStyle),
+                  TextSpan(text: "${item.text}. ", style: textStyle),
                 ],
               ),
             ),
