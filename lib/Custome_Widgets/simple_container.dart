@@ -20,6 +20,7 @@ class Item {
 
 class SimpleContainer extends StatelessWidget {
   final String title;
+  final String cardId;
   final List<Item> items;
 
   final bool visible;
@@ -38,7 +39,7 @@ class SimpleContainer extends StatelessWidget {
     this.shadowColor = const Color(0x1A000000),
     this.borderRadius = 16.0,
     this.margin = const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-    this.padding = const EdgeInsets.all(16.0),
+    this.padding = const EdgeInsets.all(16.0), required this.cardId,
   });
 
   @override
@@ -65,16 +66,16 @@ class SimpleContainer extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               if (visible)
-                Consumer<SoundProvider>(
-                  builder: (context, SoundProvider, _) {
-                    return AudioControlButton(
-                      isPlaying: SoundProvider.isAudioEnabled,
-                      onPlayPause: () {
-                        SoundProvider.toggleAudio();
-                      },
-                    );
+                 Consumer<SoundProvider>(
+              builder: (context, SoundProvider, _) {
+                return AudioControlButton(
+                  isPlaying: SoundProvider.isPlaying(cardId),
+                  onPlayPause: () {
+                    SoundProvider.toggleAudio(cardId);
                   },
-                ),
+                );
+              },
+            ),
               Text(
                 "${title}: ",
                 style: AppTheme.lightTheme.textTheme.bodyLarge,

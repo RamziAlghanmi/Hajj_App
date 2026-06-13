@@ -61,6 +61,7 @@ class HajjScreen extends StatelessWidget {
                   builder: (context) => SimpleDetailesScreen(
                     mainTitle: "أنواع النسك ",
                     title: " أنواع النسك  ",
+                    cardId: " أنواع النسك  ",
                     items: hajj_types,
                   ),
                 ),
@@ -103,6 +104,7 @@ class HajjScreen extends StatelessWidget {
                   builder: (context) => SimpleDetailesScreen(
                     mainTitle: "سنن الحج ",
                     title: "سنن الحج",
+                    cardId: "سنن الحج",
                     items: hajj_sunnah,
                   ),
                 ),

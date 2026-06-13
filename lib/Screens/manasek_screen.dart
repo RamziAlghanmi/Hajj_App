@@ -164,6 +164,7 @@ class ManasekScreen extends StatelessWidget {
                   builder: (context) => SimpleDetailesScreen(
                     mainTitle: "شروط وجوب الحج أو العمرة",
                     title: " الشروط ",
+                    cardId: "شروط وجوب الحج أو العمرة",
                     items: hajjUmrahconditions,
                   ),
                 ),
@@ -180,6 +181,7 @@ class ManasekScreen extends StatelessWidget {
                   builder: (context) => SimpleDetailesScreen(
                     mainTitle: "فضائل",
                     title: " فضائل الحج والعمرة",
+                    cardId: " فضائل الحج والعمرة",
                     items: hajjUmrahFadael,
                   ),
                 ),
@@ -196,6 +198,7 @@ class ManasekScreen extends StatelessWidget {
                   builder: (context) => SimpleDetailesScreen(
                     mainTitle: "المواقيت",
                     title: "المواقيت المكانية ",
+                    cardId: "المواقيت المكانية ",
                     items: hajjMiqat,
                   ),
                 ),

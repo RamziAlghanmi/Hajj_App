@@ -7,7 +7,7 @@ import 'package:hajj_app/Screens/simple_detailes_screen.dart';
 class EhramScreen extends StatelessWidget {
   final String title;
   EhramScreen({super.key, required this.title});
-final List<Item> ehramSunna = [
+  final List<Item> ehramSunna = [
     Item(
       number: "1",
       text:
@@ -26,61 +26,31 @@ final List<Item> ehramSunna = [
   ];
 
   final List<Item> ihramWajibat = [
-  Item(
-    number: "1",
-    text: "الإحرام من الميقات المعتبر شرعًا.",
-  ),
-  Item(
-    number: "2",
-    text: "التجرد من المخيط للرجل ولبس لباس الإحرام المشروع.",
-  ),
-  Item(
-    number: "3",
-    text: "اجتناب جميع محظورات الإحرام بعد عقد النية.",
-  ),
-  Item(
-    number: "4",
-    text: "الاستمرار في الإحرام حتى يتم التحلل المشروع.",
-  ),
-];
-final List<Item> ihramMahdorat = [
-  Item(
-    number: "1",
-    text: "إزالة شعر الرأس أو البدن عمدًا.",
-  ),
-  Item(
-    number: "2",
-    text: "تقليم الأظفار عمدًا.",
-  ),
-  Item(
-    number: "3",
-    text: "استعمال الطيب بعد الإحرام في البدن أو الثوب.",
-  ),
-  Item(
-    number: "4",
-    text: "لبس الرجل للمخيط المعتاد كالقمص والسراويل والعمامة.",
-  ),
-  Item(
-    number: "5",
-    text: "تغطية الرجل رأسه بما يلاصقه.",
-  ),
-  Item(
-    number: "6",
-    text: "لبس المرأة للنقاب أو القفازين.",
-  ),
-  Item(
-    number: "7",
-    text: "عقد النكاح لنفسه أو لغيره.",
-  ),
-  Item(
-    number: "8",
-    text: "الجماع ومقدماته من المباشرة بشهوة والتقبيل ونحوه.",
-  ),
-  Item(
-    number: "9",
-    text: "قتل صيد البر الوحشي أو الإعانة على صيده.",
-  ),
-];
+    Item(number: "1", text: "الإحرام من الميقات المعتبر شرعًا."),
+    Item(
+      number: "2",
+      text: "التجرد من المخيط للرجل ولبس لباس الإحرام المشروع.",
+    ),
+    Item(number: "3", text: "اجتناب جميع محظورات الإحرام بعد عقد النية."),
+    Item(number: "4", text: "الاستمرار في الإحرام حتى يتم التحلل المشروع."),
+  ];
+  final List<Item> ihramMahdorat = [
+    Item(number: "1", text: "إزالة شعر الرأس أو البدن عمدًا."),
+    Item(number: "2", text: "تقليم الأظفار عمدًا."),
+    Item(number: "3", text: "استعمال الطيب بعد الإحرام في البدن أو الثوب."),
+    Item(
+      number: "4",
+      text: "لبس الرجل للمخيط المعتاد كالقمص والسراويل والعمامة.",
+    ),
+    Item(number: "5", text: "تغطية الرجل رأسه بما يلاصقه."),
+    Item(number: "6", text: "لبس المرأة للنقاب أو القفازين."),
+    Item(number: "7", text: "عقد النكاح لنفسه أو لغيره."),
+    Item(
+      number: "8",
+      text: "الجماع ومقدماته من المباشرة بشهوة والتقبيل ونحوه.",
+    ),
+    Item(number: "9", text: "قتل صيد البر الوحشي أو الإعانة على صيده."),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -94,8 +64,12 @@ final List<Item> ihramMahdorat = [
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) =>
-                      SimpleDetailesScreen(mainTitle: " واجبات الإحرام ",title:  " واجبات الإحرام  ", items: ihramWajibat,),
+                  builder: (context) => SimpleDetailesScreen(
+                    mainTitle: " واجبات الإحرام ",
+                    title: " واجبات الإحرام  ",
+                    items: ihramWajibat,
+                    cardId: " واجبات الإحرام  ",
+                  ),
                 ),
               );
             },
@@ -107,8 +81,12 @@ final List<Item> ihramMahdorat = [
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) =>
-                      SimpleDetailesScreen(mainTitle: " سنن الإحرام " ,title: " سنن الإحرام",items:ehramSunna,),
+                  builder: (context) => SimpleDetailesScreen(
+                    mainTitle: " سنن الإحرام ",
+                    title: " سنن الإحرام",
+                    items: ehramSunna,
+                    cardId: " سنن الإحرام",
+                  ),
                 ),
               );
             },
@@ -120,8 +98,12 @@ final List<Item> ihramMahdorat = [
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) =>
-                      SimpleDetailesScreen(mainTitle: " محظورات الإحرام ", title:"محظورات الإحرام  " ,items: ihramMahdorat ,),
+                  builder: (context) => SimpleDetailesScreen(
+                    mainTitle: " محظورات الإحرام ",
+                    title: "محظورات الإحرام  ",
+                    items: ihramMahdorat,
+                    cardId: "محظورات الإحرام  ",
+                  ),
                 ),
               );
             },

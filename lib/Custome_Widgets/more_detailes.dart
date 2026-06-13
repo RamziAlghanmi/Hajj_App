@@ -26,6 +26,8 @@ class Items {
 class DefinitionCard extends StatelessWidget {
   final String text;
   final String title;
+  final String cardId;
+
   final bool visible;
 
   final Color shadowColor;
@@ -44,7 +46,7 @@ class DefinitionCard extends StatelessWidget {
     this.shadowColor = const Color(0x1A000000),
     this.borderRadius = 16.0,
     this.padding = const EdgeInsets.all(16.0),
-    this.margin = const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+    this.margin = const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0), required this.cardId,
   });
 
   @override
@@ -71,15 +73,15 @@ class DefinitionCard extends StatelessWidget {
           children: [
             if (visible)
               Consumer<SoundProvider>(
-                builder: (context, SoundProvider, _) {
-                  return AudioButton(
-                    isMuted: SoundProvider.isAudioEnabled,
-                    onPressed: () {
-                      SoundProvider.toggleAudio();
-                    },
-                  );
-                },
-              ),
+              builder: (context, SoundProvider, _) {
+                return AudioControlButton(
+                  isPlaying: SoundProvider.isPlaying(cardId),
+                  onPlayPause: () {
+                    SoundProvider.toggleAudio(cardId);
+                  },
+                );
+              },
+            ),
             Padding(
               padding: padding,
               child: RichText(
@@ -116,7 +118,7 @@ class DalelCard extends StatelessWidget {
   final String hadithSource; // الراوي
 
   final bool visible;
-
+  final String cardId;
   final Color shadowColor;
   final double borderRadius;
   final EdgeInsets margin;
@@ -134,7 +136,7 @@ class DalelCard extends StatelessWidget {
     this.shadowColor = const Color(0x1A000000),
     this.borderRadius = 16.0,
     this.margin = const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-    this.padding = const EdgeInsets.all(16.0),
+    this.padding = const EdgeInsets.all(16.0), required this.cardId,
   });
 
   @override
@@ -160,9 +162,9 @@ class DalelCard extends StatelessWidget {
             Consumer<SoundProvider>(
               builder: (context, SoundProvider, _) {
                 return AudioControlButton(
-                  isPlaying: SoundProvider.isAudioEnabled,
+                  isPlaying: SoundProvider.isPlaying(cardId),
                   onPlayPause: () {
-                    SoundProvider.toggleAudio();
+                    SoundProvider.toggleAudio(cardId);
                   },
                 );
               },
@@ -250,6 +252,7 @@ class DalelCard extends StatelessWidget {
 
 class ItemsCard extends StatelessWidget {
   final String title;
+  final String cardId;
   final List<Items> items;
   final bool visible;
   final Color shadowColor = const Color(0x1A000000);
@@ -265,6 +268,7 @@ class ItemsCard extends StatelessWidget {
     required this.title,
     required this.items,
     required this.visible,
+    required this.cardId,
   });
 
   @override
@@ -294,9 +298,9 @@ class ItemsCard extends StatelessWidget {
                 Consumer<SoundProvider>(
                   builder: (context, SoundProvider, _) {
                     return AudioControlButton(
-                      isPlaying: SoundProvider.isAudioEnabled,
+                      isPlaying: SoundProvider.isPlaying(cardId),
                       onPlayPause: () {
-                        SoundProvider.toggleAudio();
+                        SoundProvider.toggleAudio(cardId);
                       },
                     );
                   },
@@ -344,6 +348,9 @@ class ItemsCard extends StatelessWidget {
 class OtherDescCard extends StatelessWidget {
   final String text;
   final String title;
+  final String cardId;
+  
+
   final bool visible;
 
   final Color shadowColor;
@@ -362,7 +369,7 @@ class OtherDescCard extends StatelessWidget {
     this.shadowColor = const Color(0x1A000000),
     this.borderRadius = 16.0,
     this.padding = const EdgeInsets.all(16.0),
-    this.margin = const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+    this.margin = const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0), required this.cardId,
   });
 
   @override
@@ -391,15 +398,15 @@ class OtherDescCard extends StatelessWidget {
           children: [
             if (visible)
               Consumer<SoundProvider>(
-                builder: (context, SoundProvider, _) {
-                  return AudioButton(
-                    isMuted: SoundProvider.isAudioEnabled,
-                    onPressed: () {
-                      SoundProvider.toggleAudio();
-                    },
-                  );
-                },
-              ),
+              builder: (context, SoundProvider, _) {
+                return AudioControlButton(
+                  isPlaying: SoundProvider.isPlaying(cardId),
+                  onPlayPause: () {
+                    SoundProvider.toggleAudio(cardId);
+                  },
+                );
+              },
+            ),
             Padding(
               padding: padding,
               child: RichText(
