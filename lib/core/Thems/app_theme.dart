@@ -61,7 +61,8 @@ class AppTheme {
 
   static const TextStyle quranStyle = TextStyle(
     fontFamily: 'Amiri Quran',
-    fontSize: 16,
+    fontSize: 22,
+    fontWeight: .bold,
     color: AppColors.primary,
   );
 }

@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:hajj_app/Screens/manasek_screen.dart';
 import 'package:provider/provider.dart';
 import 'Screens/default_screen.dart';
 import 'core/Thems/app_theme.dart';
 import 'providers/sound_provider.dart';
-import 'screens/default_screen.dart' hide DefaultScreen;
+
 
 void main() {
   runApp(
